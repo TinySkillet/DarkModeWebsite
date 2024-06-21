@@ -1,0 +1,336 @@
+:root {
+  --primary-color: #6ec1e4; /* Light Blue */
+  --secondary-color: #8ac6d1; /* Light Teal */
+  --background-light: #e8f1f2; /* Very Light Teal */
+  --text-light: #0b3d91; /* Dark Blue */
+  --background-dark: #2b3e50; /* Dark Teal */
+  --text-dark: #d1e8e2; /* Light Cyan */
+  --accent-color: #56a3a6; /* Mid Teal */
+  --button-bg: #4a90e2; /* Blue */
+  --button-text: white;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background-light);
+  color: var(--text-light);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--primary-color);
+}
+
+nav .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .branding {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.6rem;
+  color: var(--button-text);
+}
+
+nav .links a {
+  text-decoration: none;
+  color: var(--button-text);
+  padding: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+}
+
+section.cards {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--background-light);
+}
+
+.card {
+  width: 300px;
+  border: 1px solid var(--accent-color);
+  transition: all 0.4s ease;
+  background-color: var(--background-light);
+}
+
+.card:hover {
+  transform: translate3d(0px, -5px, 0px);
+}
+
+.card .top {
+  width: 300px;
+  height: 300px;
+  background: var(--primary-color);
+  background-size: cover;
+}
+
+.card .bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .bottom h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.card .bottom h2 {
+  font-size: 0.9rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--text-light);
+  font-weight: 300;
+  padding: 1rem;
+}
+
+.card .bottom button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.7rem;
+}
+
+.btn {
+  background-color: var(--background-light);
+  width: 5em;
+  height: 2em;
+  border-radius: 10em;
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn_indicator {
+  background-color: var(--background-light);
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.btn_icon-container {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_icon {
+  color: var(--primary-color);
+  font-size: 3rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn_icon.animated {
+  animation-name: spin;
+  animation-duration: 0.5s;
+}
+
+/* Dark mode */
+
+body.darkmode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.darkmode nav {
+  background-color: var(--background-dark);
+}
+
+.darkmode nav h1 {
+  color: var(--secondary-color);
+}
+
+.darkmode nav .links a {
+  color: var(--secondary-color);
+}
+
+.darkmode .cards {
+  background-color: var(--background-dark);
+}
+
+.darkmode .reviews .container h1 {
+  color: var(--background-light);
+}
+
+.darkmode .reviews .container p {
+  color: var(--background-light);
+}
+
+.darkmode .reviews .container .slider .slide p {
+  color: var(--background-light);
+}
+
+.darkmode .card {
+  background-color: var(--background-dark);
+  border: 1px solid var(--text-dark);
+}
+
+.darkmode .card .top {
+  background: var(--accent-color);
+  background-size: cover;
+}
+
+.darkmode .card .bottom h1,
+.darkmode .card .bottom h2 {
+  color: var(--text-dark);
+}
+
+.darkmode .card .bottom button {
+  background-color: var(--accent-color);
+}
+
+.darkmode .btn {
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.3),
+    inset 8px 0px 8px rgba(0, 0, 0, 0.3), inset 0 -4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode .btn_indicator {
+  transform: translateX(3em);
+  background-color: var(--background-dark);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.darkmode .btn_icon {
+  color: var(--text-dark);
+}
+
+/* slider */
+
+section.reviews {
+  margin-top: 6rem;
+  text-align: center;
+}
+
+section.reviews h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 2rem;
+}
+
+section.reviews p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: var(--text-light);
+}
+
+section.reviews .slider .slide img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+section.reviews .slider .slide {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 12rem;
+}
+
+section.reviews .slider .slide p {
+  font-family: "Lato", sans-serif;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+section.reviews .slider.slide span {
+  font-size: 0.8rem;
+}
+
+section.reviews .slider-dots .dots {
+  list-style-type: none;
+  display: flex !important;
+  justify-content: center;
+}
+
+section.reviews .slider-dots {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+section.reviews .slider-dots button {
+  font-size: 0;
+  width: 10px;
+  height: 8px;
+  margin-right: 0.25rem;
+  outline: none;
+  border: none;
+  background: var(--text-dark);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+section.reviews .dots li.slick-active button {
+  background: var(--accent-color);
+  width: 25px;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--button-text);
+  padding: 1rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-content a {
+  color: var(--button-text);
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+body.darkmode footer {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.darkmode .footer-content a {
+  color: var(--secondary-color);
+}
+
+.darkmode .footer-content a:hover {
+  text-decoration: underline;
+}
